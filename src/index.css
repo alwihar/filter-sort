@@ -9,6 +9,10 @@ body {
     font-size: 20px !important;
 }
 
+.main-header{
+    text-align: center;
+}
+
 .width {
     width: 60%;
     margin: 0 auto;
