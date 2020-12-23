@@ -7,36 +7,8 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-// Use this array to render items
-const people = [
-  {
-    name: 'Veronica Mize',
-    dob: '11/29/2011'
-  }, {
-    name: 'Cecilia Olsson',
-    dob: '09/16/1992'
-  }, {
-    name: 'Peter Parker',
-    dob: '01/16/1992'
-  }, {
-    name: 'Jimmy Shergil',
-    dob: '12/12/2001'
-  }, {
-    name: 'Alexander Alfred',
-    dob: '02/09/1891'
-  }, {
-    name: 'Janice Shroyer',
-    dob: '12/01/1982'
-  }, {
-    name: 'Ralph White',
-    dob: '11/30/2011'
-  }, {
-    name: 'Deborah T. Decker',
-    dob: '10/31/1999'
-  }
-];
 
-const RecordTable = () => {
+const RecordTable = ({people}) => {
   return (
     <Paper className="width">
       <Table>
@@ -47,10 +19,12 @@ const RecordTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell></TableCell>
-            <TableCell></TableCell>
-          </TableRow>
+            {Object.keys(people).map((item, i) => (
+                <TableRow>
+                  <TableCell key={i+100}>{people[item].name}</TableCell>
+                  <TableCell key={i}>{people[item].dob}</TableCell>
+                </TableRow>
+            ))}
         </TableBody>
       </Table>
     </Paper>

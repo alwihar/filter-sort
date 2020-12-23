@@ -1,18 +1,23 @@
-import React, {Component} from 'react';
-import {PropTypes} from 'prop-types';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Checkbox from '@material-ui/core/Checkbox';
 
-class Filter extends Component {
-  render() {
+const Filter = ({state, onChange}) => {
+
     return (
       <div className="checkboxes">
-        <Checkbox />
+        <Checkbox
+            checked={state==='first'}
+            onChange={() => {onChange('first', 'name')}}
+        />
         <label>Name</label>
-        <Checkbox />
+        <Checkbox
+            checked={state==='second'}
+            onChange={() => {onChange('second', 'dob')}}
+        />
         <label>Age</label>
       </div>
     );
-  }
 }
 
 export default Filter;
